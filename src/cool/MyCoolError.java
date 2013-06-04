@@ -10,6 +10,12 @@ import beaver.Symbol;
  * To change this template use File | Settings | File Templates.
  */
 public class MyCoolError {
+
+
+
+    protected  static void err2(String msg) {
+
+    }
     protected static void error(String msg) {
 
         System.out.println(msg);
