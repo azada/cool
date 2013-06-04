@@ -37,8 +37,7 @@ public class Program {
         }
         return instance;
     }
-    public static boolean isConsistant
-            (String c, String p){
+    public static boolean isConsistant(String c, String p){
         if (c.equals(Expr.NULL_TYPE)){
             return true;
         }

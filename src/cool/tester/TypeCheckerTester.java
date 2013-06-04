@@ -39,50 +39,50 @@ public class TypeCheckerTester extends TestCase{
             Assert.assertTrue(false);
         }
     }
-//    public void testFeatureMehtod() {
-//        System.out.println("TypeCheckerTester.testFeatureMethod");
-//        try {
-//            FileInputStream file = new FileInputStream("testcases/testFeatureMethod.cool");
-//            MyCoolParser parser = new MyCoolParser(file);
-//            parser.parse2();
-//
-//            parser.checker();
-//            Program.printErrors();
-//            Program.clear();
-//            System.out.println("**************************************************************************************");
-//
-//            Assert.assertTrue(true);
-//
-//        } catch (FileNotFoundException e) {
-//            Assert.assertTrue(false);
-//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//        } catch (Parser.Exception e ) {
-//            System.out.println("e = " + e);
-//            Assert.assertTrue(false);
-//        }
-//    }
-//    public void testVarformals() {
-//        System.out.println("TypeCheckerTester.testVarformals");
-//        try {
-//            FileInputStream file = new FileInputStream("testcases/testVarformals.cool");
-//            MyCoolParser parser = new MyCoolParser(file);
-//            parser.parse2();
-//
-//            parser.checker();
-//            Program.printErrors();
-//            Program.clear();
-//            System.out.println("**************************************************************************************");
-//
-//            Assert.assertTrue(true);
-//
-//        } catch (FileNotFoundException e) {
-//            Assert.assertTrue(false);
-//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-//        } catch (Parser.Exception e ) {
-//            System.out.println("e = " + e);
-//            Assert.assertTrue(false);
-//        }
-//    }
+    public void testFeatureMehtod() {
+        System.out.println("TypeCheckerTester.testFeatureMethod");
+        try {
+            FileInputStream file = new FileInputStream("testcases/testFeatureMethod.cool");
+            MyCoolParser parser = new MyCoolParser(file);
+            parser.parse2();
+
+            parser.checker();
+            Program.printErrors();
+            Program.clear();
+            System.out.println("**************************************************************************************");
+
+            Assert.assertTrue(true);
+
+        } catch (FileNotFoundException e) {
+            Assert.assertTrue(false);
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (Parser.Exception e ) {
+            System.out.println("e = " + e);
+            Assert.assertTrue(false);
+        }
+    }
+    public void testVarformals() {
+        System.out.println("TypeCheckerTester.testVarformals");
+        try {
+            FileInputStream file = new FileInputStream("testcases/testVarformals.cool");
+            MyCoolParser parser = new MyCoolParser(file);
+            parser.parse2();
+
+            parser.checker();
+            Program.printErrors();
+            Program.clear();
+            System.out.println("**************************************************************************************");
+
+            Assert.assertTrue(true);
+
+        } catch (FileNotFoundException e) {
+            Assert.assertTrue(false);
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (Parser.Exception e ) {
+            System.out.println("e = " + e);
+            Assert.assertTrue(false);
+        }
+    }
 //    public void testFormals() {
 //        System.out.println("TypeCheckerTester.testFormals");
 //        try {
