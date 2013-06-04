@@ -1,0 +1,8 @@
+class Canvas(var width : Cds, var height : Int){
+       def a() : Boolean= d;
+       def a() : Int = s ;
+}
+class Cds(){
+
+}
+

@@ -1,0 +1,10 @@
+
+class A2I(){
+       def a() : Boolean= 22;
+       def a() : Int = 22 ;
+}
+
+class A2I(){
+      def get_length() : Int = 22;
+      def get_length() : Int = 22;
+}
