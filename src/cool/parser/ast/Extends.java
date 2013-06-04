@@ -1,8 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 import java.util.ArrayList;
 
@@ -41,7 +40,7 @@ public class Extends extends Node{
 
             ArrayList temp = Program.getInstance().typeClassTable.get(type).varFormals;
             if (actuals.size() != temp.size()){
-                Program.addError(new Exeption("the number of arguments in " + type + " is " + temp.size() + " while " + actuals.size()+" are given",this));
+                Program.addError(new MyExeption("the number of arguments in " + type + " is " + temp.size() + " while " + actuals.size()+" are given",this));
                 result = false;
                 return result;
             }
@@ -53,13 +52,13 @@ public class Extends extends Node{
                 if (((Var)temp.get(i)).type.equals(((Expr)actuals.get(i)).expType))
                     continue;
                 else{
-                    Program.addError(new Exeption("types passed to the constructor do not match the required types",this));
+                    Program.addError(new MyExeption("types passed to the constructor do not match the required types",this));
                     result = false;
                 }
             }
         }
         else{
-            Program.addError(new Exeption("type " + type + " has not been declared",this));
+            Program.addError(new MyExeption("type " + type + " has not been declared",this));
         }
 
         //To change body of implemented methods use File | Settings | File Templates.

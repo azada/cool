@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -28,12 +28,12 @@ public class Equal extends BooleanOperation {
 
         if (((Expr)(operandsList.get(1))).expType.equals(((Expr)(operandsList.get(0))).expType)){
             if (!((Expr)(operandsList.get(1))).expType.equals(INTEGER_TYPE)){
-                Program.addError(new Exeption("one or two sides of the operation is not integer",this));
+                Program.addError(new MyExeption("one or two sides of the operation is not integer",this));
                 result = false;
             }
         }
         else{
-            Program.addError(new Exeption("two sides of the operation do not have the same type",this));
+            Program.addError(new MyExeption("two sides of the operation do not have the same type",this));
             result = false;
         }
 

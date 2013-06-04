@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ public class AssignmentOperation extends UnitOperation{
 
     public AssignmentOperation(ArrayList operands) {
         operandsList = operands;
+        this.expType = UNIT_TYPE;
     }
 
     @Override
@@ -26,10 +27,10 @@ public class AssignmentOperation extends UnitOperation{
             result = result && fml;
         }
         if (!Program.isConsistant(((Expr)(operandsList.get(1))).expType,((Expr)(operandsList.get(0))).expType)){
-             Program.addError(new Exeption("expression on the right do not match the expression on the left",this));
+             Program.addError(new MyExeption("expression on the right do not match the expression on the left",this));
             result = false;
         }
-        this.expType = UNIT_TYPE;
+
         return result;  //To change body of implemented methods use File | Settings | File Templates.
     }
 

@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
 
@@ -28,7 +28,7 @@ public class VarExpr extends Expr {
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         if (!Program.typeTableContains(type)){
-            Program.addError(new Exeption("Type " + type + " has not been defined",this));
+            Program.addError(new MyExeption("Type " + type + " has not been defined",this));
             result = false;
         }
         else {
@@ -37,7 +37,7 @@ public class VarExpr extends Expr {
         }
         boolean ex = expr.check(pTable);
         if(!Program.getInstance().isConsistant(expr.expType, type)){
-            Program.addError(new Exeption("the type of this expression is not " + type ,this));
+            Program.addError(new MyExeption("the type of this expression is not " + type ,this));
             result = false;
         }
         return result && ex;

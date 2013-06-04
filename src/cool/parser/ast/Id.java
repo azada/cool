@@ -1,9 +1,8 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +26,7 @@ public class Id extends Primary {
             result = true;
         }
         else {
-            Program.addError(new Exeption("the variable " + name + " has not been declared ",this));
+            Program.addError(new MyExeption("the variable " + name + " has not been declared ",this));
             result = false;
         }
         return result;

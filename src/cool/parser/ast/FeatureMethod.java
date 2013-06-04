@@ -1,8 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ public class FeatureMethod extends Feature {
         this.symbolNode.setParent(pTable);
         if ( Program.typeTableContains(pTable.type)){
             if (Program.getInstance().getTableRow(pTable.type).containsKey(id)){
-                Program.addError(new Exeption("method "+ this.id + " has duplicate definitions " , this));
+                Program.addError(new MyExeption("method "+ this.id + " has duplicate definitions " , this));
                 result = false;
             }
             else{
@@ -42,7 +41,7 @@ public class FeatureMethod extends Feature {
             }
         }
         else{
-            Program.addError(new Exeption("the scope for this class has not been defined",this));
+            Program.addError(new MyExeption("the scope for this class has not been defined",this));
         }
 
         //we set the parent node to be the pTable
@@ -56,7 +55,7 @@ public class FeatureMethod extends Feature {
         ///////////////////////here we check if we return the correct type in methods ///////////////////////////////
 //        System.out.println("expression type is" + expr.expType);
         if(!Program.isConsistant(expr.expType,type)){
-            Program.addError(new Exeption("the return type of this expression is not consistant with " + type ,this));
+            Program.addError(new MyExeption("the return type of this expression is not consistant with " + type ,this));
             result = false;
         }
         ////////////////////////////////////////////////////////////////

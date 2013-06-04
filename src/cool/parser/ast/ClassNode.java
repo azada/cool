@@ -33,7 +33,7 @@ public class ClassNode extends Node {
     public boolean shallowCheck(SymbolNode pTable){
         boolean result = true;
         if (Program.getInstance().typeTableContains(type)){
-            Program.addError(new Exeption("Class "+ type + " has already been declared" , this));
+            Program.addError(new MyExeption("Class "+ type + " has already been declared" , this));
             defined = false;
             result = false;
         }

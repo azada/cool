@@ -1,8 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class Instance extends Primary {
             ArrayList temp = Program.getInstance().typeClassTable.get(type).varFormals;
             //first we check the numbers:
             if(temp.size() != actuals.size()){
-                Program.addError(new Exeption("the number of arguments needed for initializing " + type + " is " + temp.size(),this));
+                Program.addError(new MyExeption("the number of arguments needed for initializing " + type + " is " + temp.size(),this));
                 result = false;
             }
             else{
@@ -53,14 +52,14 @@ public class Instance extends Primary {
                     if (((Var)temp.get(i)).type.equals(((Expr)actuals.get(i)).expType))
                         continue;
                     else{
-                        Program.addError(new Exeption("types passed to the constructor do not match the required types",this));
+                        Program.addError(new MyExeption("types passed to the constructor do not match the required types",this));
                         result = false;
                     }
                 }
             }
         }
         else{
-            Program.addError(new Exeption("the class " + type + "doesn't exist, instance can't be initialized",this));
+            Program.addError(new MyExeption("the class " + type + "doesn't exist, instance can't be initialized",this));
             result = false;
         }
         //To change body of implemented methods use File | Settings | File Templates.

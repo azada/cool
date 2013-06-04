@@ -1,11 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
-
-import java.util.ArrayList;
 
 /**
  * Created with IntelliJ IDEA.

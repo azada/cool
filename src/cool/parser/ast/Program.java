@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class Program {
     // in order to store the class's object as a pair to the classe's name, we need another hashmap.
     public static HashMap<String , ClassNode> typeClassTable = new HashMap<String, ClassNode>();
     public static SymbolNode programSymbolNode = new SymbolNode();
-    private static ArrayList<Exeption> errorList = new ArrayList<Exeption>();
+    private static ArrayList<MyExeption> errorList = new ArrayList<MyExeption>();
     public static HashMap<String, String> inheritance = new HashMap<String, String>();
     private static Program instance = new Program();
 
@@ -38,6 +38,9 @@ public class Program {
         return instance;
     }
     public static boolean isConsistant(String c, String p){
+        if (c== null){
+            System.out.println("helloooooo");
+        }
         if (c.equals(Expr.NULL_TYPE)){
             return true;
         }
@@ -150,7 +153,7 @@ public class Program {
     public static SymbolNode getSymbolNode(){
         return programSymbolNode;
     }
-    public static void addError(Exeption error){
+    public static void addError(MyExeption error){
         errorList.add(error);
     }
     public static void printErrors(){

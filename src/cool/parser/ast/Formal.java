@@ -1,9 +1,8 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,7 +23,7 @@ public class Formal extends Node{
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         if (!Program.typeTableContains(type)){
-            Program.addError(new Exeption("Type " + type + " has not been defined",this));
+            Program.addError(new MyExeption("Type " + type + " has not been defined",this));
             result = false;
         }
         else {

@@ -1,8 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,7 +39,7 @@ public class IfNode extends Expr {
             if (temp != null)
                 this.expType = temp;
             else {
-                Program.addError(new Exeption("the main expression and the else expression do not have a mutual parent" ,this));
+                Program.addError(new MyExeption("the main expression and the else expression do not have a mutual parent" ,this));
                 result = false;
             }
         }

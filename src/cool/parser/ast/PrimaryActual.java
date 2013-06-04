@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -31,14 +31,17 @@ public class PrimaryActual extends Expr {
         if (Program.getInstance().getTableRow(primary.expType)!= null){
             // we check if this primary type has this method defined
             if (!Program.getInstance().getTableRow(primary.expType).containsKey(id)){
-                    // if this Id didn't have this method in itself, we should look up to find this method.
-                    String superType = pTable.lookup("SUPER").getType();
-                    temp = Program.fetchMethod(superType,id);
-                    if(temp == null){
-                        // this means that this method doesn't exsist
-                        Program.addError(new Exeption("type " + primary.expType + " or it's super doesn't have method " + id ,this));
-                        result = false;
-                    }
+                // if this Id didn't have this method in itself, we should look up to find this method.
+                String superType = pTable.lookup("SUPER").getType();
+                temp = Program.fetchMethod(superType,id);
+                if(temp == null){
+                    // this means that this method doesn't exsist
+                    Program.addError(new MyExeption("type " + primary.expType + " or it's super doesn't have method " + id ,this));
+                    throw
+                    result = false;
+                }
+                this.expType = temp.type;
+
             }
             else{
                 //this method exists within this class
@@ -48,7 +51,7 @@ public class PrimaryActual extends Expr {
         }
         else{
             // if this primary type has not been defined throw an error
-            Program.addError(new Exeption("there is no such type "+ primary.expType + " defined",this));
+            Program.addError(new MyExeption("there is no such type "+ primary.expType + " defined",this));
             result = false;
         }
 
@@ -60,13 +63,13 @@ public class PrimaryActual extends Expr {
         if (temp != null)  {
         // we should make sure we have the same number of actuals and formals in method call
             if (temp.formals.size() != actuals.size()){
-                Program.addError(new Exeption(temp.formals.size()+ " number of argument needed and " + actuals + " are given",this));
+                Program.addError(new MyExeption(temp.formals.size()+ " number of argument needed and " + actuals + " are given",this));
                 result = false;
             }
             //and make sure we have the same type in actuals as we had in feature methods.
             for (int i = 0 ; i< temp.formals.size() ; i++){
                 if (!Program.getInstance().isConsistant(((Formal) (temp.formals.get(i))).type, ((Expr) actuals.get(i)).expType)){
-                    Program.addError(new Exeption("type of actuals doesn't match argument list defined in the method",this));
+                    Program.addError(new MyExeption("type of actuals doesn't match argument list defined in the method",this));
                     result = false;
                 }
             }

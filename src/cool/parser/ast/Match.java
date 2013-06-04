@@ -1,9 +1,7 @@
 package cool.parser.ast;
 
-import beaver.Symbol;
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 import java.util.ArrayList;
 
@@ -32,7 +30,7 @@ public class Match extends Expr {
 
         }
         if (cases.size() ==0 ){
-            Program.addError(new Exeption("Match needs at least one case",this));
+            Program.addError(new MyExeption("Match needs at least one case",this));
             result = false;
         }
         if (cases.size()==1){
@@ -45,7 +43,7 @@ public class Match extends Expr {
             }
             //if we didn't have a mutual parent
             if (temp == null){
-                Program.addError(new Exeption("cases types did not have a mutual parent to be compared with the primary",this));
+                Program.addError(new MyExeption("cases types did not have a mutual parent to be compared with the primary",this));
                 result = false;
             }
             else{

@@ -1,9 +1,8 @@
 package cool.parser.ast;
 
-import cool.symbol.Exeption;
+import cool.symbol.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -34,7 +33,7 @@ public class FeatureVar extends Feature {
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         if (!Program.typeTableContains(type)){
-            Program.addError(new Exeption("Type " + type + " has not been defined",this));
+            Program.addError(new MyExeption("Type " + type + " has not been defined",this));
             result = false;
         }
         else {
@@ -44,7 +43,7 @@ public class FeatureVar extends Feature {
         boolean ex = expr.check(pTable);
         ///////////////////////here we check if we return the correct type in methods ///////////////////////////////
         if(!expr.expType.equals(type)){
-            Program.addError(new Exeption("the type of this expression is not " + type ,this));
+            Program.addError(new MyExeption("the type of this expression is not " + type ,this));
             result = false;
         }
         ////////////////////////////////////////////////////////////////
