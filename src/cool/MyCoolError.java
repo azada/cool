@@ -14,7 +14,7 @@ public class MyCoolError {
 
 
     protected  static void err2(String msg) {
-
+        System.out.println("hello pedram");
     }
     protected static void error(String msg) {
 

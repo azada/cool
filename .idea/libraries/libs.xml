@@ -1,0 +1,30 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/beaver-ant-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/java_cup.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/JFlex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._classages.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-rt-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._polyglot1_3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-cc-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/beaver-cc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._JFlex.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/beaver-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/classages.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/beaver-rt-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/polyglot1_3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/beaver-cc-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/beaver-ant.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-ant-0.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/junit-4.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._junit-4.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._java_cup.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-rt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/._beaver-cc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
