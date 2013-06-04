@@ -1,4 +1,3 @@
-
 class A2I(){
        def a() : Boolean= 22;
        def a() : Int = 22 ;
