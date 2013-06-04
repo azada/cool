@@ -46,7 +46,7 @@ public class ClassNode extends Node {
     @Override
     public boolean check(SymbolNode pTable){
         boolean result = true;
-        boolean ex = ext.check(pTable);
+        boolean ex = ext.check(this.symbolNode);
         result = result && ex;
         if(ext != null){
             Program.getInstance().inheritance.put(type, ext.type);
