@@ -46,9 +46,9 @@ public class ClassNode extends Node {
     @Override
     public boolean check(SymbolNode pTable){
         boolean result = true;
-        boolean ex = ext.check(this.symbolNode);
-        result = result && ex;
         if(ext != null){
+            boolean ex = ext.check(this.symbolNode);
+            result = result && ex;
             Program.getInstance().inheritance.put(type, ext.type);
             SymbolItem temp = new SymbolItem("SUPER",ext.type,false);
             this.symbolNode.insert(temp);
