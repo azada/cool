@@ -79,7 +79,7 @@ public class MyCoolParser {
     }
     public boolean shallowChecker(){
         boolean result = true;
-        for(int i = 0 ; i< Program.getClasses().size(); i++){
+        for(int i = Program.getClasses().size()-1 ; i>0 ; i--){
             boolean cn = (((ClassNode)Program.getClasses().get(i)).shallowCheck(Program.getSymbolNode()));
             result = result && cn;
         }

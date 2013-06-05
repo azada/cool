@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -23,11 +23,16 @@ public class AssignmentOperation extends UnitOperation{
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         for (Object operand : operandsList) {
-            boolean fml = ((Expr) operand).check(pTable);
+            boolean fml = false;
+            try {
+                fml = ((Expr) operand).check(pTable);
+            } catch (MyExeption myExeption) {
+                // empty
+            }
             result = result && fml;
         }
         if (!Program.isConsistant(((Expr)(operandsList.get(1))).expType,((Expr)(operandsList.get(0))).expType)){
-             Program.addError(new MyExeption("expression on the right do not match the expression on the left",this));
+             Program.addError(new MyExeption("type of expression on the right do not match the expression on the left",this));
             result = false;
         }
 

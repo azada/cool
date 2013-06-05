@@ -1,5 +1,6 @@
 package cool.parser.ast;
 
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 import cool.symbol.SymbolTable;
 
@@ -40,10 +41,26 @@ public class Block extends Expr {
         boolean result = true;
         this.symbolNode.setParent(pTable);
         for (int i = 0; i < exprList.size(); i++) {
-            boolean el = ((Expr)(exprList.get(i))).check(symbolNode);
+
+            /////////////////////////////////////////////////////////////////////////////////
+            boolean el = false;
+            try {
+                el = ((Expr)(exprList.get(i))).check(symbolNode);
+            } catch (MyExeption myExeption) {
+                myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            /////////////////////////////////////////////////////////////////////////////////
+
             result = result && el;
         }
-        boolean ed = this.end.check(symbolNode);
+        /////////////////////////////////////////////////////////////////////////////////
+        boolean ed = false;
+        try {
+            ed = this.end.check(symbolNode);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
         this.expType = end.expType;
         return result && ed;
     }

@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 /**
@@ -25,9 +25,18 @@ public class IfNode extends Expr {
     @Override
     public boolean check(SymbolNode pTable) {
         boolean result = true;
-        boolean co = condition.check(pTable);
-        boolean ex = elseExpr.check(pTable);
-        boolean mx = mainExpr.check(pTable);
+        boolean co,ex ,mx;
+        co = ex = mx = true;
+        /////////////////////////////////////////////////////////////////////////////////
+        try {
+            co = condition.check(pTable);
+            ex = elseExpr.check(pTable);
+            mx = mainExpr.check(pTable);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
         result = result && co && ex && mx;
 
         // we should check if the main expr and the elseexp are the same type

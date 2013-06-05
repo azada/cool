@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
 

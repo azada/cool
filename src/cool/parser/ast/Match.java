@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -23,7 +23,17 @@ public class Match extends Expr {
     @Override
     public boolean check(SymbolNode pTable) {
         boolean result = true;
-        boolean ex = primary.check(pTable);
+
+        /////////////////////////////////////////////////////////////////////////////////
+        boolean ex = false;
+        try {
+            ex = primary.check(pTable);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
         for (int i=0 ; i<cases.size(); i++){
             boolean vf = ((Case)this.cases.get(i)).check(pTable);
             result = result && vf;

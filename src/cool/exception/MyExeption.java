@@ -1,4 +1,4 @@
-package cool.symbol;
+package cool.exception;
 
 import beaver.Symbol;
 
@@ -12,7 +12,7 @@ import beaver.Symbol;
 public class MyExeption extends Exception {
     String errorMsg;
     Symbol errorInfo ;
-    public MyExeption(String errorMsg, Symbol e) {
+    public MyExeption(String errorMsg, Symbol e){
         this.errorMsg = errorMsg;
         this.errorInfo = e;
     }

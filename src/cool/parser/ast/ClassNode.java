@@ -3,6 +3,7 @@ package cool.parser.ast;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import cool.exception.MyExeption;
 import cool.symbol.*;
 /**
  * Created with IntelliJ IDEA.
@@ -63,19 +64,22 @@ public class ClassNode extends Node {
             this.symbolNode.setParent(null);
         }
 
-
-
         result = result && defined;
-
-
-
         for (int i=0 ; i<varFormals.size(); i++){
             boolean vf = ((Var)this.varFormals.get(i)).check(this.symbolNode);
             result = result && vf;
         }
 
         for (int i=0 ; i < this.featureList.size(); i++){
-             boolean res = ((Feature)this.featureList.get(i)).check(this.symbolNode);
+            /////////////////////////////////////////////////////////////////////////////////
+            boolean res = false;
+            try {
+                res = ((Feature)this.featureList.get(i)).check(this.symbolNode);
+            } catch (MyExeption myExeption) {
+                myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            /////////////////////////////////////////////////////////////////////////////////
+
              result = result && res;
         }
         return result;

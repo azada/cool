@@ -1,6 +1,7 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MethodException;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class PrimaryActual extends Expr {
         this.id = id;
     }
     @Override
-    public boolean check(SymbolNode pTable) {
+    public boolean check(SymbolNode pTable) throws MyExeption {
         // we should check the Type of primary and make sure it has an id with this method.
         boolean result = true;
         FeatureMethod temp = null;
@@ -36,9 +37,9 @@ public class PrimaryActual extends Expr {
                 temp = Program.fetchMethod(superType,id);
                 if(temp == null){
                     // this means that this method doesn't exsist
-                    Program.addError(new MyExeption("type " + primary.expType + " or it's super doesn't have method " + id ,this));
-                    throw
                     result = false;
+                    throw new MyExeption("this method doesn't exist", this);
+
                 }
                 this.expType = temp.type;
 
@@ -46,6 +47,7 @@ public class PrimaryActual extends Expr {
             else{
                 //this method exists within this class
                 temp = Program.getInstance().getTableRow(primary.expType).get(id);
+                this.expType = temp.type;
             }
 
         }
@@ -53,6 +55,7 @@ public class PrimaryActual extends Expr {
             // if this primary type has not been defined throw an error
             Program.addError(new MyExeption("there is no such type "+ primary.expType + " defined",this));
             result = false;
+            throw new MethodException("this primary doesn't exist", this);
         }
 
         // now we should check the actuals

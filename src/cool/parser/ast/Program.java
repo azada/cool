@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -38,15 +38,14 @@ public class Program {
         return instance;
     }
     public static boolean isConsistant(String c, String p){
-        if (c== null){
-            System.out.println("helloooooo");
-        }
         if (c.equals(Expr.NULL_TYPE)){
             return true;
         }
         if(instance.inheritance.containsKey(c)){
-            if (c.equals(p))
+            if (c.equals(p)){
+                System.out.println("coooooOOOOOOoooool");
                 return true;
+            }
             String r = instance.inheritance.get(c);
             if (r == null)
                 return false;

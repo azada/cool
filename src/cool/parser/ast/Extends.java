@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -45,7 +45,17 @@ public class Extends extends Node{
                 return result;
             }
             for (Object actual : actuals) {
-                boolean fml = ((Expr) actual).check(pTable);
+
+                /////////////////////////////////////////////////////////////////////////////////
+                boolean fml = false;
+                try {
+                    fml = ((Expr) actual).check(pTable);
+                } catch (MyExeption myExeption) {
+                    myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                /////////////////////////////////////////////////////////////////////////////////
+
+
                 result = result && fml;
             }
             for(int i = 0 ; i<actuals.size() ;i++){

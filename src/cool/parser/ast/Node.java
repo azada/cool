@@ -9,13 +9,13 @@ package cool.parser.ast;
  */
 
 import beaver.Symbol;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
-import cool.symbol.SymbolTable;
 
 public abstract class Node extends Symbol
 {
     public abstract void accept();
-    public abstract boolean check(SymbolNode pTable);
+    public abstract boolean check(SymbolNode pTable) throws MyExeption;
 }
 
 

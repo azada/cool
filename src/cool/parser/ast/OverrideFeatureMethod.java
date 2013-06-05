@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package cool.parser.ast;
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -73,7 +73,17 @@ public class OverrideFeatureMethod extends FeatureMethod {
             boolean fml = ((Formal) formal).check(this.symbolNode);
             result = result && fml;
         }
-        boolean express =  expr.check(this.symbolNode);
+
+        /////////////////////////////////////////////////////////////////////////////////
+        boolean express = false;
+        try {
+            express = expr.check(this.symbolNode);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
         result = result &&  express;
         if(!Program.isConsistant(expr.expType,type)){
             Program.addError(new MyExeption("the return type of this expression is not consistant with " + type ,this));

@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolItem;
 import cool.symbol.SymbolNode;
 
@@ -40,7 +40,17 @@ public class FeatureVar extends Feature {
             SymbolItem temp = new SymbolItem(id, type, false);
             pTable.insert(temp);
         }
-        boolean ex = expr.check(pTable);
+
+        /////////////////////////////////////////////////////////////////////////////////
+        boolean ex = false;
+        try {
+            ex = expr.check(pTable);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
         ///////////////////////here we check if we return the correct type in methods ///////////////////////////////
         if(!expr.expType.equals(type)){
             Program.addError(new MyExeption("the type of this expression is not " + type ,this));

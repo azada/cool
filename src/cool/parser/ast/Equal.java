@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -22,7 +22,17 @@ public class Equal extends BooleanOperation {
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         for (Object operand : operandsList) {
-            boolean fml = ((Expr) operand).check(pTable);
+
+            ////////////////////////////////////////////////////////////////////////
+            boolean fml = false;
+            try {
+                fml = ((Expr) operand).check(pTable);
+            } catch (MyExeption myExeption) {
+                myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+            ////////////////////////////////////////////////////////////////////////
+
+
             result = result && fml;
         }
 

@@ -1,5 +1,6 @@
 package cool.parser.ast;
 
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 import cool.symbol.SymbolTable;
 
@@ -25,8 +26,19 @@ public class WhileNode extends Expr
     @Override
     public boolean check(SymbolNode pTable) {
         boolean result = true;
-        boolean co = condition.check(pTable);
-        boolean ma = mainExpr.check(pTable);
+
+        ////////////////////////////////////////////////////////////////////////
+        boolean co = false;
+        boolean ma = false;
+        try {
+            co = condition.check(pTable);
+            ma = mainExpr.check(pTable);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        ////////////////////////////////////////////////////////////////////////
+
+
         return result && co & ma ;
 
         //To change body of implemented methods use File | Settings | File Templates.

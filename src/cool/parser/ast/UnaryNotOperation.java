@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -22,7 +22,16 @@ public class UnaryNotOperation extends UnaryBooleanOperation{
     public boolean check(SymbolNode pTable) {
         boolean result = true;
         Expr temp = ((Expr)(operandsList.get(0)));
-        temp.check(pTable);
+
+        /////////////////////////////////////////////////////////////////////////////////
+        try {
+            temp.check(pTable);
+        } catch (MyExeption myExeption) {
+            myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
         if(!temp.expType.equals(BOOLEAN_TYPE)){
             result = false;
             Program.addError(new MyExeption("the expression type for unary 'not' operation must boolean, it's "+ temp.expType ,this));

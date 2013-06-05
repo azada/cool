@@ -1,6 +1,6 @@
 package cool.parser.ast;
 
-import cool.symbol.MyExeption;
+import cool.exception.MyExeption;
 import cool.symbol.SymbolNode;
 
 import java.util.ArrayList;
@@ -33,7 +33,16 @@ public class Instance extends Primary {
         if (Program.getInstance().typeTableContains(type)){
             // now that we know such class exists, we check the arguments. we check the actuals
             for (int i=0 ; i<actuals.size(); i++){
-                boolean ac = ((Expr)actuals.get(i)).check(pTable);
+                ////////////////////////////////////////////////////////////////////////
+                boolean ac = false;
+                try {
+                    ac = ((Expr)actuals.get(i)).check(pTable);
+                } catch (MyExeption myExeption) {
+                    myExeption.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                ////////////////////////////////////////////////////////////////////////
+
+
                 result = result && ac;
             }
             // if there is a  problem with the actuals, we return flase and do not check them with varformals.
